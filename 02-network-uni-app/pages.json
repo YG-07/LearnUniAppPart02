@@ -105,6 +105,10 @@
 			{
 				"name":"List页面",
 				"path":"pages/list/list"
+			},
+			{
+				"name":"get请求页面",
+				"path":"pages/requests/requests"
 			}
 		]
 	}
