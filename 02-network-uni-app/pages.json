@@ -1,0 +1,111 @@
+{
+	"pages": [ 
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "App标题"
+			}
+			//app-plus	设置编译到 App 平台的特定样式
+			// h5	设置编译到 H5 平台的特定样式
+		},
+		{
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "信息"
+			}
+		},
+		{
+			"path":"pages/profile/profile",
+			"style":{
+				"navigationBarTitleText":"我的主页"
+			}
+		},
+		{
+			"path":"pages/detail/detail",
+			"style":{
+				"navigationBarTitleText":"案例详情"
+			}
+		},
+		{
+			"path":"pages/uni-style/uni-style",
+			"style":{
+				"navigationBarTitleText":"uni-style详情"
+			}
+		},
+		{
+			"path":"pages/list/list",
+			"style":{
+				"navigationBarTitleText":"list详情",
+				// 是否监听下拉刷新
+				"enablePullDownRefresh":true,
+				// 触底距离
+				"onReachBottomDistance":50
+			}
+		},
+		{
+			"path":"pages/requests/requests",
+			"style":{
+				"navigationBarTitleText":"网络请求详情"
+			}
+		}
+	],
+	"globalStyle": {
+		// 导航栏标题颜色及状态栏前景颜色，仅支持 black/white
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "全局标题",
+		// 导航条背景
+		"navigationBarBackgroundColor": "#55efc4",
+		// 页面下拉时背景
+		"backgroundColor": "#fd79a8",
+		"enablePullDownRefresh": true,
+		// 下拉 loading 的样式，仅支持 dark / light
+		"backgroundTextStyle": "light",
+		// 页面上拉触底事件触发时距页面底部距离，单位只支持px，详见页面生命周期
+		"onReachBottomDistance": 50
+	},
+	// 导航栏
+	"tabBar": {
+		"color":"#000000",
+		"selectedColor":"#f39c12",
+		"backgroundColor":"#ecf0f1",
+		// list最少2个、最多5个 tab
+		"list": [
+			{
+				"text":"首页",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/tabs/home.png",
+				"selectedIconPath":"static/tabs/home_active.png"
+			},
+			{
+				"text":"信息",
+				"pagePath":"pages/message/message",
+				"iconPath":"static/tabs/survey.png",
+				"selectedIconPath":"static/tabs/survey_active.png"
+			},
+			{
+				"text":"我的",
+				"pagePath":"pages/profile/profile",
+				"iconPath":"static/tabs/user.png",
+				"selectedIconPath":"static/tabs/user_active.png"
+			}
+		]
+	},
+	"condition": {
+		"current": 0,
+		"list": [
+			{
+				"name":"详情页面",
+				"path":"pages/detail/detail"
+			},
+			{
+				"name":"样式页面",
+				"path":"pages/uni-style/uni-style"
+			},
+			{
+				"name":"List页面",
+				"path":"pages/list/list"
+			}
+		]
+	}
+}
