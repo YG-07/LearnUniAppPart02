@@ -87,3 +87,42 @@ removeId(){
   * success的返回值属性有：keys、currentSize(占用的空间大小, 单位：kb)、limitSize(限制的空间大小, 单位：kb)
 * uni.getStorageInfoSync() 同步获取当前 storage 的相关信息。成功的返回值同上
 * uni.clearStorage()和uni.clearStorageSync() 清理本地数据缓存。后者可以使用try-catch
+
+## 三、图片的上传和预览 (22)
+* 官方文档URL：https://uniapp.dcloud.io/api/media/image
+### 3.1 上传图片
+* uni.chooseImage(OBJECT) 从本地相册选择图片或使用相机拍照。App端如需要更丰富的相机拍照API。OBJECT参数常用有：
+	* count 最多可以选择的图片张数，默认9
+	* success、fail、complete 3种回调函数
+	*  sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+### 3.2 图片预览
+* uni.previewImage(OBJECT) 预览图片。
+	* current 为当前显示图片的链接/索引值，不填或填写的值无效则为 urls 的第一张
+	* urls (必填)需要预览的图片链接列表
+	* loop 循环预览，默认false（仅支持5+App）
+## 四、条件编译来跨端兼容 (23)
+官方文档URL：https://uniapp.dcloud.io/platform?id=%e8%b7%a8%e7%ab%af%e5%85%bc%e5%ae%b9
+### 4.1 条件编译
+* 支持的文件`.vue/.js/.css/pages.json和平台特有的组件`，和各预编译语言文件，如：`.scss、.less、.stylus、.ts、.pug`
+* 写法：以 `#ifdef` 或 `#ifndef`(除了某平台) 加 `%PLATFORM%`(平台名称，多个就使用`||`，没有平台交集) 开头，以 `#endif` 结尾。
+* %PLATFORM% 可取值(部分常用如下：
+```
+值	平台
+APP-PLUS	App
+H5	H5
+MP-WEIXIN	微信小程序
+MP-ALIPAY	支付宝小程序
+MP	微信小程序/支付宝小程序/百度小程序/字节跳动小程序/QQ小程序/360小程序
+```
+## 五、导航跳转和传参 (24)
+* 官方文档URL：https://uniapp.dcloud.io/api/router?id=navigateto
+### 5.1 navigator标签页面跳转
+* navigator该组件(标签)类似HTML中的<a>组件，但只能跳转本地页面。目标页面必须在pages.json中注册。属性有：
+	* url：	应用内的跳转链接，值为**相对路径或绝对路径**，如："**../**first/first"，"**/**pages/first/first"，注意不能加 .vue 后缀
+	* open-type 跳转方式，如：`switchTab跳转到tabbar导航页`，`redirect卸载此页并跳转`
+### 5.2 uni.navigateTo方法跳转
+* uni.navigateTo 跳转至某个页面
+* uni.switchTab 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
+* uni.redirectTo 关闭当前页面，跳转到应用内的某个页面。
+### 5.3 参数传递和接收
+* 在url参数后面使用：`?属性=值&...`的方式传参，都是字符串类型

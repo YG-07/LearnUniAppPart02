@@ -34,6 +34,12 @@
 				uni.startPullDownRefresh()
 			}
 		},
+		onLoad(res) {
+			console.log("跳转接收的参数：",res)
+		},
+		onUnload() {
+			console.log("List页面卸载了")
+		},
 		onPullDownRefresh(){
 			console.log('触发了下拉刷新')
 			// 刷新等操作

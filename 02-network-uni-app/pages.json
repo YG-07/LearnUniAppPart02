@@ -48,6 +48,12 @@
 			"style":{
 				"navigationBarTitleText":"网络请求详情"
 			}
+		},
+		{
+			"path":"pages/navigator/navigator",
+			"style":{
+				"navigationBarTitleText":"导航跳转页"
+			}
 		}
 	],
 	"globalStyle": {

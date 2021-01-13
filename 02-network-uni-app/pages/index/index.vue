@@ -9,6 +9,7 @@
 		<button @click="$router.push('pages/list/list')">List详情</button>
 		<button @click="$router.push('pages/requests/requests')">网络请求详情</button>
 		<!-- <navigator url="pages/detail/detail"><button type="default">详情</button></navigator> -->
+		<navigator url="/pages/navigator/navigator"><button>跳转至nav页</button></navigator>
 	</view>
 </template>
 
