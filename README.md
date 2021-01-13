@@ -169,10 +169,32 @@ destroyed() {
 	console.log('destroy销毁后,num:',this.num)
 }
 ```
-## 七、组件之间的通信方式 (26)
-### 7.1 父子组件通信
+## 七、组件之间的通信方式 (26-27)
+### 7.1 父子组件通信 (props $emit)
 * 父传子，在父组件的`子组件标签`添加属性`:数据名="数据名"`,子组件使用props属性数组接收`props:['数据名']`,然后就可以在子组件里使用`{{数据名}}`
 * 子传父，在子组件里定义点击发送的方法，使用`this.$emit('自定义事件名',this.数据名)`，然后父组件在`子组件标签`里添加属性`@自定义事件名="接收方法"`,在接收方法中使用`一个参数`接收,即可赋值和使用了
-### 7.2 兄弟组件通信
-
-
+### 7.2 兄弟组件通信 ($on)
+* uni.$emit(eventName,OBJECT) 触发全局的自定事件。附加参数都会传给监听器回调。
+* uni.$on(eventName,callback) 监听全局的自定义事件。事件可以由 uni.$emit 触发，回调函数会接收所有传入事件触发函数的额外参数。
+```javaScript
+// cpn2里注册全局事件 $on注册
+created() {
+	uni.$on('updateNum',(cnt)=>{
+		this.num+=cnt
+	})
+}
+// cpn1里使用 $emit调用，即可修改cpn2的值
+methods:{
+	addNum(){
+		uni.$emit('updateNum',8)
+	}
+}
+```
+### 7.3 uni组件库的基本使用
+* 官方文档URL：https://uniapp.dcloud.io/component/README?id=uniui
+* 如：导入一个[日历组件(URL)](https://ext.dcloud.net.cn/plugin?id=56)
+* 使用`HBuilderX导入`，默认在`components`目录，组件文件夹为`uni-calendar`
+* 安装上面URL组件说明导入和使用
+  
+------本节知识------
+---

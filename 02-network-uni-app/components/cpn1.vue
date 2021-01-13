@@ -1,7 +1,7 @@
 <template>
 	<view id="cpn1">
 		<view>这是cpn1</view>
-		<button type="primary">修改cpn2的数据</button>
+		<button type="primary" @click="addNum">修改cpn2的数据</button>
 	</view>
 </template>
 
@@ -9,14 +9,16 @@
 	export default {
 		data() {
 			return {
-				
+
 			};
+		},
+		methods:{
+			addNum(){
+				uni.$emit('updateNum',8)
+			}
 		}
 	}
 </script>
 
 <style>
-	#cpn1 {
-		border: #000000 1px solid;
-	}
 </style>

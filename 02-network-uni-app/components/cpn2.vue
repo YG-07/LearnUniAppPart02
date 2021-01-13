@@ -11,12 +11,15 @@
 			return {
 				num:10
 			};
+		},
+		created() {
+			uni.$on('updateNum',(cnt)=>{
+				this.num+=cnt
+			})
 		}
 	}
 </script>
 
 <style>
-	#cpn2 {
-		border: #000000 1px solid;
-	}
+
 </style>
