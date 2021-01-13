@@ -16,14 +16,32 @@
 			<view>我只在微信小程序中显示</view>
 			<!-- #endif -->
 		</view>
+		<view class="part12-component">使用组件</view>
+		<view class="part13-communication">组件通信</view>
+		<view>
+			<button type="warn" @click="chgCpn">销毁和加载组件</button>
+			<test v-if="isMount" :communi="communi" @myEven="getData"></test>
+		</view>
+		
 	</view>
 </template>
 
 <script>
+	import test from '../../components/test.vue'
 	export default{
+		components:{
+			test
+		},
 		data(){
 			return{
-				imgArr:[]
+				isMount:false,
+				imgArr:[],
+				communi:{
+					name:'message',
+					cate:'vue',
+					size:1024
+				},
+				sonData:[]
 			}
 		},
 		methods:{
@@ -44,6 +62,13 @@
 					// 开启循环预览
 					loop:true
 				})
+			},
+			chgCpn(){
+				this.isMount=!this.isMount
+			},
+			getData(arr){
+				this.sonData = arr
+				console.log('子传父成功!',this.sonData)
 			}
 		},
 		onLoad() {

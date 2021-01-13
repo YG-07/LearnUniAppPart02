@@ -126,3 +126,53 @@ MP	微信小程序/支付宝小程序/百度小程序/字节跳动小程序/QQ�
 * uni.redirectTo 关闭当前页面，跳转到应用内的某个页面。
 ### 5.3 参数传递和接收
 * 在url参数后面使用：`?属性=值&...`的方式传参，都是字符串类型
+## 六、组件的创建和生命周期函数 (25)
+### 6.1 创建并使用组件（Vue的基础知识）
+* 现在项目中创建components文件夹，再在里面创建vue组件
+* 然后在需要的页面中`import`导入，并注册`components:{test}`，直接在页面中使用`<test/>`标签
+### 6.2 组件的生命周期函数
+* 官方文档URL：[组件的生命周期](https://uniapp.dcloud.io/collocation/frame/lifecycle?id=%e7%bb%84%e4%bb%b6%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f)
+* Vue组件创建过程，主要包括：**组件创建、挂载实例、数据更新、组件销毁**，分别2个`钩子函数(回调函数)`
+```javaScript
+// 实例初始化之后被调用,还没创建
+beforeCreate() {
+	console.log('beforeCreate创建前，组件数据未定义,num：',this.num)
+},
+// 实例创建完成后，对于created的定时器需要手动在destroy函数里clear
+created() {
+	this.intId = setInterval(()=>{
+				console.log('执行定时器')
+			},2000)
+	console.log('created创建后，组件数据num：',this.num)
+},
+// 以下6个方法仅在H5中展示，挂载实例、数据更新(一直监听)、组件销毁
+// 挂载开始之前被调用
+beforeMount() {
+	console.log('beforeMount挂载前,num的DOM元素为null：',document.getElementById('num'))
+},
+// 挂载到实例上去之后调用(执行1次)
+mounted() {
+	console.log('mounted挂载后,num的DOM元素：',document.getElementById('num'))
+},
+// 数据更新时调用
+// beforeUpdate() {},
+// 由于数据更改导致的虚拟 DOM 重新渲染之后
+// updated() {},
+// 实例销毁之前调用，此时实例仍然完全可用
+beforeDestroy() {
+	console.log('beforeDestroy销毁之前,num:',this.num)
+},
+// Vue 实例销毁时调用
+destroyed() {
+	clearInterval(this.intId)
+	console.log('销毁定时器')
+	console.log('destroy销毁后,num:',this.num)
+}
+```
+## 七、组件之间的通信方式 (26)
+### 7.1 父子组件通信
+* 父传子，在父组件的`子组件标签`添加属性`:数据名="数据名"`,子组件使用props属性数组接收`props:['数据名']`,然后就可以在子组件里使用`{{数据名}}`
+* 子传父，在子组件里定义点击发送的方法，使用`this.$emit('自定义事件名',this.数据名)`，然后父组件在`子组件标签`里添加属性`@自定义事件名="接收方法"`,在接收方法中使用`一个参数`接收,即可赋值和使用了
+### 7.2 兄弟组件通信
+
+

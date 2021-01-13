@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 一个四色菱形 */
+#colorBox {
+	margin: 80rpx auto;
+	width: 0rpx;
+	height: 0rpx;
+	text-align: center;
+	border-style: solid;
+	border-width: 200rpx;
+	border-left-color: #F67B66;
+	border-top-color: #47ACF8;
+	border-right-color: #85E838;
+	border-bottom-color: #EFD83C;
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+

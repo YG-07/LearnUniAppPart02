@@ -6,7 +6,8 @@
         "pages/detail/detail",
         "pages/uni-style/uni-style",
         "pages/list/list",
-        "pages/requests/requests"
+        "pages/requests/requests",
+        "pages/navigator/navigator"
     ],
     "subPackages": [],
     "window": {
@@ -44,5 +45,5 @@
         ]
     },
     "usingComponents": {},
-    "sitemapLocation": "sitemap90.json"
+    "sitemapLocation": "sitemap15.json"
 }

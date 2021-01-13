@@ -1,0 +1,1 @@
+<view><view>这是test组件，这是父组件的数据：</view><view>{{"父传子成功!:"+communi.name+","+communi.cate+","+communi.size}}</view><text id="num">{{"数字："+num}}</text><button type="primary" data-event-opts="{{[['tap',[['sendData',['$event']]]]]}}" bindtap="__e">通信:子传父组件,发送</button><view id="colorBox"></view></view>

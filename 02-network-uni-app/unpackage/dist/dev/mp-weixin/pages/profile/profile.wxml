@@ -1,1 +1,1 @@
-<view><view class="_p">这是我的主页。。。。</view></view>
+<view><view class="_p">这是我的主页。。。。</view><view class="part14-communication2"><cpn1 vue-id="23b2e5ec-1" bind:__l="__l"></cpn1><cpn2 vue-id="23b2e5ec-2" bind:__l="__l"></cpn2></view></view>
